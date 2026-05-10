@@ -1,0 +1,486 @@
+= Charte Graphique : Gabarit de Document
+Julien POLLET <contact@perceval.sh>
+// ── Rendu PDF ─────────────────────────────────────────────
+:pdf-page-size: A4
+:pdf-theme: PERCEVAL-A4-theme.yml
+:icons: font
+:source-highlighter: rouge
+// ── Structure ─────────────────────────────────────────────
+:toc: macro
+:toclevels: 4
+:toc-title: Sommaire
+:sectnums:
+:appendix-caption: Annexe
+// ── Métadonnées ───────────────────────────────────────────
+:description: Définition des éléments graphiques de la charte graphique de Perceval
+:client: PERCEVAL
+:website: www.perceval.sh
+:title-page: Charte Graphique
+:tlp: clear
+:doc-version: 2.0.0
+:doc-date: 2026-05-10
+// ── Ressources ────────────────────────────────────────────
+:imagesdir: img/
+:hide-uri-scheme:
+:encoding: UTF-8
+
+
+[discrete]
+== Historique des versions
+
+[cols="10,15,20,~", options="header"]
+|===
+| Version | Date | Auteur | Modifications
+
+| 1.0.0 | 2026-01-15 | Perceval | Création initiale du document
+|===
+
+<<<
+
+toc::[]
+
+// ──────────────────────────────────────────────
+// PARTIE 1 — TYPOGRAPHIE
+// ──────────────────────────────────────────────
+
+<<<
+== Typographie & Mise en Page
+
+=== Niveaux de Titres
+
+==== Titre de niveau 4
+
+Paragraphe de corps de texte standard. La police **Montserrat** est utilisée pour l'ensemble des contenus.
+Le texte est justifié avec un interligne adapté à la lecture de documents techniques.
+
+===== Titre de niveau 5
+
+Un sous-titre de niveau 5 permet de segmenter finement les sections longues. Il hérite de la couleur
+accentuée `#be9e12` pour rester lisible dans la hiérarchie visuelle.
+
+=== Formatage Inline
+
+Voici un exemple complet de formatage inline :
+
+* *Texte en gras* — emphase forte
+* _Texte en italique_ — emphase légère
+* `code inline` — élément technique
+* *_Gras et italique_* — double emphase
+* ^exposant^ et ~indice~
+* [.line-through]#Texte barré#
+* Lien : https://www.perceval.sh[perceval.sh]
+
+=== Rôles de Couleurs
+
+La charte graphique définit un ensemble de rôles de couleur utilisables dans le corps du texte :
+
+[cols="20,20,60", options="header"]
+|===
+| Rôle | Couleur | Exemple d'utilisation
+
+| `.gold` | `#be9e12` | [.gold]#Texte accentué or — couleur primaire Perceval#
+| `.ugold` | `#be9e12` uppercase | [.ugold]#titre ou label en majuscules#
+| `.marron` | `#4e4427` | [.marron]#Texte secondaire brun foncé#
+| `.red` | `#ef4242` | [.red]#Alerte, erreur, élément critique#
+| `.ured` | `#ef4242` uppercase | [.ured]#mention critique#
+| `.orange` | `#f97316` | [.orange]#Avertissement orange#
+| `.green` | `#22c55e` | [.green]#Validation, succès#
+| `.blue` | `#4A90D9` | [.blue]#Information, lien, référence#
+| `.white` | `#ffffff` | [.white]#Texte blanc (fond sombre)#
+|===
+
+=== Niveaux de Vulnérabilité
+
+Les niveaux de criticité CVE sont représentés par des couleurs dédiées :
+
+* [.color-vuln-informational]#*INFORMATIONNEL*# — CVE Score 0.0
+* [.color-vuln-low]#*FAIBLE*# — CVE Score 0.1–3.9
+* [.color-vuln-medium]#*MOYEN*# — CVE Score 4.0–6.9
+* [.color-vuln-high]#*ÉLEVÉ*# — CVE Score 7.0–8.9
+* [.color-vuln-critical]#*CRITIQUE*# — CVE Score 9.0–10.0
+
+=== Classifications TLP
+
+[cols="20,~", options="header"]
+|===
+| Label | Usage
+
+| [.tlpclear]#*TLP:CLEAR*# | Information publique, sans restriction de diffusion.
+| [.tlpgreen]#*TLP:GREEN*# | Diffusion limitée à la communauté (partenaires, clients).
+| [.tlpamber]#*TLP:AMBER*# | Diffusion restreinte aux organisations concernées.
+| [.tlpred]#*TLP:RED*# | Diffusion interdite hors destinataires explicites.
+|===
+
+// ──────────────────────────────────────────────
+// PARTIE 2 — LISTES
+// ──────────────────────────────────────────────
+
+<<<
+== Listes & Énumérations
+
+=== Liste non ordonnée
+
+* Premier élément principal
+** Sous-élément de niveau 2
+*** Sous-sous-élément de niveau 3
+** Autre sous-élément
+* Deuxième élément principal
+* Troisième élément principal
+** Élément imbriqué
+
+=== Liste ordonnée
+
+. Première étape — initialisation
+.. Sous-étape A
+.. Sous-étape B
+. Deuxième étape — configuration
+. Troisième étape — déploiement
+.. Déploiement en staging
+.. Validation fonctionnelle
+.. Promotion en production
+
+=== Liste de définitions
+
+Terraform::
+Outil d'Infrastructure as Code (IaC) permettant de provisionner des ressources cloud de manière déclarative.
+
+Ansible::
+Outil d'automatisation et de gestion de configuration sans agent, utilisant des playbooks YAML.
+
+SaltStack::
+Plateforme d'orchestration et de gestion de configuration orientée événements, basée sur un modèle maître/minion.
+
+=== Liste de vérification
+
+* [x] Architecture définie
+* [x] Environnement de test provisionné
+* [ ] Déploiement en staging validé
+* [ ] Mise en production effectuée
+* [ ] Documentation mise à jour
+
+// ──────────────────────────────────────────────
+// PARTIE 3 — TABLEAUX
+// ──────────────────────────────────────────────
+
+<<<
+== Tableaux
+
+=== Tableau Simple
+
+[cols="~,~,~", options="header"]
+|===
+| Composant | Version | Statut
+
+| Kubernetes | 1.29.3 | [.green]#*Actif*#
+| Prometheus | 2.51.0 | [.green]#*Actif*#
+| Grafana | 10.4.1 | [.orange]#*Maintenance*#
+| Alertmanager | 0.27.0 | [.green]#*Actif*#
+| Loki | 3.0.0 | [.red]#*Déprécié*#
+|===
+
+=== Tableau de Matrice de Risques
+
+[cols="15,25,15,15,30", options="header"]
+|===
+| ID | Risque | Probabilité | Impact | Mitigation
+
+| R-01 | Indisponibilité base de données | [.color-vuln-medium]#Moyen# | [.color-vuln-critical]#Critique# | Réplication multi-zone, backups quotidiens
+| R-02 | Fuite de données sensibles | [.color-vuln-low]#Faible# | [.color-vuln-critical]#Critique# | Chiffrement at-rest et in-transit, audit logs
+| R-03 | Surcharge CPU collecte logs | [.color-vuln-critical]#Élevé# | [.color-vuln-medium]#Moyen# | Auto-scaling horizontal, throttling
+| R-04 | Expiration certificat TLS | [.color-vuln-medium]#Moyen# | [.color-vuln-critical]#Élevé# | Rotation automatique via cert-manager
+| R-05 | Accès non autorisé API | [.color-vuln-low]#Faible# | [.color-vuln-critical]#Critique# | mTLS, RBAC, MFA obligatoire
+|===
+
+=== Tableau de Ports & Protocoles
+
+[cols="10,20,10,15,~", options="header"]
+|===
+| Port | Service | Proto | Direction | Description
+
+| 443 | HTTPS | TCP | IN/OUT | Interface web principale et API REST
+| 8080 | HTTP | TCP | IN | Reverse proxy interne (redirigé en 443)
+| 9090 | Prometheus | TCP | IN | Métriques scraping (réseau interne uniquement)
+| 514 | Syslog | UDP | IN | Collecte logs système
+| 6514 | Syslog/TLS | TCP | IN | Collecte logs chiffrés
+| 5044 | Logstash | TCP | IN | Ingestion Beats/agents
+| 22 | SSH | TCP | IN | Administration (jump host uniquement)
+|===
+
+=== Tableau avec Cellules Fusionnées
+
+[cols="20,40,40", options="header"]
+|===
+| Environnement | Serveurs applicatifs | Stockage
+
+.2+| Production
+| app-prod-01 (primary)
+| SAN NFS 10 To chiffré
+
+| app-prod-02 (replica)
+| Object Storage S3 compatible
+
+.2+| Staging
+| app-stg-01
+| NFS 2 To
+
+| app-stg-02
+| Disque local SSD
+
+| Développement | app-dev-01 (partagé) | NFS 500 Go
+|===
+
+// ──────────────────────────────────────────────
+// PARTIE 4 — CODE & DIAGRAMMES
+// ──────────────────────────────────────────────
+
+<<<
+== Code
+
+=== Blocs de Code
+
+==== Configuration YAML
+
+[source,yaml]
+----
+# Configuration Perceval — Collecte de logs
+perceval:
+  name: log-collector
+  version: "2.4.1"
+
+ingestion:
+  syslog:
+    enabled: true
+    port: 514
+    protocol: udp
+    tls:
+      enabled: true
+      port: 6514
+      cert: /etc/ssl/certs/perceval.crt
+      key: /etc/ssl/private/perceval.key
+
+  beats:
+    enabled: true
+    port: 5044
+    ssl: true
+
+output:
+  elasticsearch:
+    hosts:
+      - "https://es-01.internal:9200"
+      - "https://es-02.internal:9200"
+    index_pattern: "logs-{source}-{date}"
+    username: "${ES_USER}"
+    password: "${ES_PASS}"
+    bulk_max_size: 2048
+----
+
+
+==== Terraform — Infrastructure
+
+[source,hcl]
+----
+# main.tf — Infrastructure Perceval sur AWS
+
+terraform {
+  required_version == ">== 1.7.0"
+  required_providers {
+    aws == {
+      source  == "hashicorp/aws"
+      version == "~> 5.0"
+    }
+  }
+  backend "s3" {
+    bucket == "perceval-tfstate"
+    key    == "prod/log-collector/terraform.tfstate"
+    region == "eu-west-3"
+  }
+}
+
+resource "aws_instance" "log_collector" {
+  count         == var.instance_count
+  ami           == data.aws_ami.ubuntu.id
+  instance_type == "t3.large"
+
+  tags == {
+    Name        == "perceval-collector-${count.index + 1}"
+    Environment == var.environment
+    ManagedBy   == "Terraform"
+  }
+
+  user_data == templatefile("${path.module}/cloud-init.yml.tpl", {
+    version == var.collector_version
+  })
+}
+----
+
+[kroki, mermaid, png]
+----
+%%{init: {"theme": "base", "themeVariables": {
+  "pie1": "#be9e12",
+  "pie2": "#4e4427",
+  "pie3": "#efeadb",
+  "pie4": "#dbd9d3",
+  "pie5": "#f97316",
+  "pieTextColor": "#ffffff",
+  "pieTitleTextColor": "#4e4427",
+  "pieStrokeColor": "#4e4427",
+  "pieLegendTextColor": "#4e4427",
+  "fontFamily": "sans-serif"
+}}}%%
+pie showData
+    title Repartition des Alertes par Niveau de Severite - T1 2026
+    "Critique" : 47
+    "Eleve" : 128
+    "Moyen" : 315
+    "Faible" : 203
+    "Informationnel" : 89
+----
+
+// ──────────────────────────────────────────────
+// PARTIE 5 — BLOCS SPÉCIAUX
+// ──────────────────────────────────────────────
+
+<<<
+== Blocs Spéciaux
+
+=== Admonitions
+
+NOTE: Les admonitions permettent de mettre en valeur des informations importantes sans interrompre
+le flux de lecture. Elles sont rendues avec l'icône et le style correspondant à leur niveau.
+
+TIP: Pour optimiser les performances de collecte, privilégiez le protocole syslog/TLS sur le port 6514
+plutôt que l'UDP non chiffré. Le gain en sécurité justifie la légère surcharge de traitement.
+
+IMPORTANT: Tout accès à l'API de production doit obligatoirement passer par le jump host dédié.
+Les connexions directes sont bloquées au niveau du pare-feu périmétrique.
+
+WARNING: La rotation des certificats TLS doit être effectuée **avant** leur expiration.
+Un certificat expiré provoque une interruption totale de la collecte de logs.
+
+CAUTION: Ne jamais stocker les credentials Elasticsearch en clair dans les fichiers de configuration.
+Utiliser systématiquement des variables d'environnement ou un gestionnaire de secrets (Vault, AWS SSM).
+
+=== Sidebar
+
+.Informations Complémentaires
+****
+La plateforme Perceval prend en charge les formats de logs suivants :
+
+* RFC 3164 (BSD Syslog)
+* RFC 5424 (Syslog Protocol)
+* JSON structuré
+* CEF (Common Event Format)
+* LEEF (Log Event Extended Format)
+
+Pour les formats propriétaires, un parseur custom peut être développé
+via l'API de plugins.
+****
+
+=== Citation
+
+[quote, ANSSI, Guide de recommandations de sécurité]
+____
+La journalisation constitue une mesure de sécurité fondamentale permettant de détecter les incidents,
+d'analyser les causes profondes et de répondre aux obligations réglementaires. Elle doit être
+exhaustive, intègre et disponible en temps opportun.
+____
+
+=== Bloc Exemple
+
+.Exemple de requête Elasticsearch DSL
+====
+[source,json]
+----
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "term": { "event.category": "authentication" } },
+        { "term": { "event.outcome": "failure" } }
+      ],
+      "filter": [
+        { "range": { "@timestamp": { "gte": "now-24h" } } }
+      ]
+    }
+  },
+  "aggs": {
+    "by_source_ip": {
+      "terms": { "field": "source.ip", "size": 10 }
+    }
+  }
+}
+----
+====
+
+=== Bloc de Vers
+
+[verse, Sun Tzu, L'Art de la Guerre]
+____
+Connais ton ennemi et connais-toi toi-même ;
+eussiez-vous cent guerres à soutenir,
+cent fois vous serez victorieux.
+____
+
+// ──────────────────────────────────────────────
+// PARTIE 6 — RÉFÉRENCES CROISÉES & NOTES
+// ──────────────────────────────────────────────
+
+<<<
+== Références & Notes
+
+=== Références Croisées
+
+Voir la <<_architecture_système>> pour le détail de l'infrastructure de collecte.
+
+Le <<_tableau_de_matrice_de_risques>> liste les risques identifiés lors de la phase d'analyse.
+
+Les <<_niveaux_de_vulnérabilité>> sont alignés sur l'échelle CVSS v3.1.
+
+=== Notes de Bas de Page
+
+La collecte de logs en temps réel nécessite une latence inférieure à 500ms^1^.
+footnote:[Latence mesurée entre la génération de l'événement sur la source et son indexation dans Elasticsearch, hors charge exceptionnelle.]
+
+Le chiffrement AES-256-GCM^2^ est utilisé pour le stockage at-rest.
+footnote:[Conformément aux recommandations ANSSI — Guide de sécurité des systèmes d'information version 2024.]
+
+=== Texte Multi-Colonnes
+
+[cols="~,~", frame="none", grid="none"]
+|===
+a|
+==== Avantages
+
+* Centralisation des logs multi-sources
+* Corrélation d'événements en temps réel
+* Réduction du temps de détection (MTTD)
+* Conformité RGPD et NIS2
+* Archivage long terme automatisé
+
+a|
+==== Contraintes
+
+* Volume de stockage important
+* Bande passante réseau dédiée
+* Ressources de traitement conséquentes
+* Expertise technique spécialisée
+* Gestion des faux positifs
+|===
+
+// ──────────────────────────────────────────────
+// PARTIE 7 — ANNEXES
+// ──────────────────────────────────────────────
+
+<<<
+[appendix]
+=== Glossaire
+
+ANSSI:: Agence Nationale de la Sécurité des Systèmes d'Information.
+CVE:: Common Vulnerabilities and Exposures — identifiant international de vulnérabilité.
+CVSS:: Common Vulnerability Scoring System — système de notation de la sévérité des vulnérabilités.
+MTTD:: Mean Time To Detect — temps moyen de détection d'un incident de sécurité.
+MTTR:: Mean Time To Respond — temps moyen de réponse et remédiation.
+SIEM:: Security Information and Event Management.
+SOC:: Security Operations Center.
+TLP:: Traffic Light Protocol — protocole de classification de la confidentialité des informations.
+

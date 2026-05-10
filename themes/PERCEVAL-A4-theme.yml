@@ -1,0 +1,369 @@
+extends: base
+
+# ==============================================================================
+# PALETTE DE COULEURS
+# Modifier ici pour changer les couleurs de tout le document
+# ==============================================================================
+color:
+  # -- Marque --
+  primary: "#4e4427" # marron foncé — couleur principale de la marque
+  primary-light: "#f6f5f4" # beige clair — fond admonitions/sidebar
+  secondary: "#be9e12" # or/gold — couleur d'accent principale
+  secondary-light: "#fbfaf3" # beige code — fond blocs de code
+  blue: "#4A90D9" # bleu neutre — rôles .blue/.ublue
+
+  black: "#000000"
+  white: "#ffffff"
+  # -- TLP (Traffic Light Protocol) --
+  tlp-bg: "#000000" # fond commun à tous les niveaux TLP
+  tlp-clear: $color-white # TLP:CLEAR
+  tlp-green: "#00ff00" # TLP:GREEN
+  tlp-amber: "#f47424" # TLP:AMBER
+  tlp-red: "#ff0000" # TLP:RED
+
+  # -- Criticité des vulnérabilités --
+  vuln-informational: "#4A90D9" # Informationnel — bleu neutre
+  vuln-low: "#F0C040" # Faible — jaune ambré
+  vuln-medium: "#E07B20" # Moyen — orange modéré
+  vuln-high: "#E53935" # Élevé — rouge vif (contraste renforcé)
+  vuln-critical: "#B71C1C" # Critique — rouge sombre (contraste max)
+
+  # -- Admonitions --
+  admonition-note: "#4A90D9" # bleu — info
+  admonition-tip: "#22c55e" # vert — conseil
+  admonition-warning: "#f97316" # orange — avertissement
+  admonition-caution: "#ef4242" # rouge — danger/feu
+  admonition-important: "#ef4242" # rouge — important
+
+page:
+  #layout: landscape
+  layout: portrait
+  margin: [2.5cm, 2.5cm, 2.5cm, 2.5cm]
+  size: A4
+  #background-image: image::./img/bg-perceval-{page-layout}.png[fit=cover]
+font:
+  catalog:
+    merge: true
+    LeagueSpartan:
+      normal: League_Spartan/static/LeagueSpartan-Regular.ttf
+      italic: League_Spartan/static/LeagueSpartan-Regular.ttf
+      bold: League_Spartan/static/LeagueSpartan-Bold.ttf
+      bold_italic: League_Spartan/static/LeagueSpartan-Bold.ttf
+    Montserrat:
+      normal: Montserrat/static/Montserrat-Regular.ttf
+      italic: Montserrat/static/Montserrat-Italic.ttf
+      bold: Montserrat/static/Montserrat-Bold.ttf
+      bold_italic: Montserrat/static/Montserrat-BoldItalic.ttf
+    SofiaSans:
+      normal: Sofia_Sans/static/SofiaSans-Regular.ttf
+      italic: Sofia_Sans/static/SofiaSans-Italic.ttf
+      bold: Sofia_Sans/static/SofiaSans-SemiBold.ttf
+      bold_italic: Sofia_Sans/static/SofiaSans-SemiBoldItalic.ttf
+    JetBrainsMono:
+      normal: JetBrains_Mono/static/JetBrainsMono-Regular.ttf
+      italic: JetBrains_Mono/static/JetBrainsMono-Italic.ttf
+      bold: JetBrains_Mono/static/JetBrainsMono-Bold.ttf
+      bold_italic: JetBrains_Mono/static/JetBrainsMono-BoldItalic.ttf
+    
+base:
+  font-color: $color-black
+  font-family: Montserrat
+  font-size: 10.5
+  align: justify
+  line-height-length: 16
+vertical-spacing: $base-line-height-length
+vertical-spacing-top: $base-line-height-length + 8
+
+title-page:
+  background-image: image::img/cover-perceval.svg[scale=100%,fit=cover]
+  background-color: $color-primary
+  font-style: bold
+  font-color: $color-white
+  align: right
+  logo:
+    image: image::./img/logo-perceval.jpg[pdfwidth=6cm,align=left,top=94%]
+  title:
+    font-size: 44
+    font-style: bold
+    font-family: LeagueSpartan
+    align: right
+    margin-top: 110
+    background-color: $color-primary
+    background-padding: 4
+    background-radius: 2
+  subtitle:
+    font-size: 24
+    margin-top: 0
+  authors:
+    font-style: bold
+    align: right
+    content: |
+      [.tlp{tlp}]#*TLP:{tlp}*# +
+      {author} +
+      pass:a[{website}] +
+      {doc-date} +
+      v{doc-version}
+    margin-top: 150
+toc:
+  title:
+    font-size: 28
+    text-transform: uppercase
+    font-color: $color-primary
+  font-color: $color-primary
+  font-style: bold
+  h2-font-color: $color-primary
+  h2-font-size: 12
+  h2-text-transform: uppercase
+  h3-font-color: $color-secondary
+  h3-font-size: 10
+  h4-font-color: $color-primary
+  h4-font-size: 8
+  h4-font-style: bold
+  h5-font-color: $color-secondary
+  h5-font-size: 8
+  h5-font-style: bold
+heading:
+  text-transform: none
+  font-style: bold
+  font-family: LeagueSpartan
+  line-height: 1.2
+  margin-bottom: $vertical-spacing
+  #margin: [5px, 0px, 10px, 0px]
+  h2:
+    font-color: $color-primary
+    font-size: 24
+    text-transform: uppercase
+    margin-top: $vertical-spacing-top
+    #margin-bottom: -$vertical-spacing
+  h3:
+    font-color: $color-secondary
+    font-size: 18
+  h4:
+    font-color: $color-primary
+    font-size: 14
+    font-style: bold
+    indent: $base-font-size * 2
+  h5:
+    font-color: $color-secondary
+    font-size: 11
+    font-style: bold
+    indent: $base-font-size * 3
+link:
+  font-color: $color-secondary
+  text-decoration: underline
+header:
+  margin: [0.1cm, 0cm, 0cm, 0cm]
+  height: $base-line-height-length * 2.5
+  border-width: 0
+  font-color: $color-primary
+  font-size: 8
+  font-style: normal
+  recto:
+    right:
+      content: "{title-page}"
+    center:
+      content: " [.tlp{tlp}]#*TLP:{tlp}*# "
+    left:
+      content: "{client}"
+  verso:
+    right:
+      content: $header_recto_right_content
+    center:
+      content: $header_recto_center_content
+    left:
+      content: $header_recto_left_content
+
+footer:
+  margin: [0cm, 0cm, 0cm, 0cm]
+  height: $base-line-height-length * 2
+  border-width: 0
+  font-color: $color-primary
+  font-size: 8
+  font-style: normal
+  recto:
+    right:
+      content: "{doc-date} &nbsp;&nbsp;&nbsp;&nbsp; [.marron]#*{page-number}*# [.gold]#*/*# [.marron]#{page-count}#"
+    left:
+      content: ""
+    center:
+      content: "[.logo]#PERCEVAL#"
+  verso:
+    right:
+      content: $footer_recto_right_content
+    left:
+      content: $footer_recto_left_content
+    center:
+      content: $footer_recto_center_content
+
+admonition:
+  font-color: $color-primary
+  background-color: $color-primary-light
+  border-radius: 2
+  border-width: 1
+  border-color: $color-primary # fallback si l'extension n'est pas chargée
+  column-rule-width: 0
+  # Clés customs lues par l'extension perceval-a4.rb
+  note-border-color: $color-admonition-note
+  tip-border-color: $color-admonition-tip
+  warning-border-color: $color-admonition-warning
+  caution-border-color: $color-admonition-caution
+  important-border-color: $color-admonition-important
+  label:
+    note:
+      font-color: $color-admonition-note
+    tip:
+      font-color: $color-admonition-tip
+    warning:
+      font-color: $color-admonition-warning
+    caution:
+      font-color: $color-admonition-caution
+    important:
+      font-color: $color-admonition-important
+
+sidebar:
+  font-color: $color-primary
+  background-color: $color-primary-light
+  border-radius: 2
+  border-width: 0
+code:
+  background-color: $color-secondary-light
+  font-family: JetBrainsMono
+  font-size: 8
+image:
+  align: center
+  width: 85%
+  caption:
+    align: center
+    font-color: $color-secondary
+table:
+  head_background_color: $color-primary
+  border_color: $color-primary
+  background-color: $color-primary-light
+  head_font_color: $color-white
+  stripes: odd
+  align: center
+  width: 100%
+  caption:
+    align: center
+    font-color: $color-secondary
+  body:
+    stripe-background-color: $color-primary-light
+cover:
+  front:
+    image: ~
+  back:
+    image: ~
+source:
+  background-color: $color-secondary-light
+  border-radius: 8
+  font-family: JetBrainsMono
+  font-size: 8
+verse:
+  background-color: $color-primary-light
+  border-width: 0
+  border-color: $color-primary
+  border-left-width: 4
+  font-size: 8
+list:
+  indent: 20
+  item-spacing: 2
+ulist:
+  marker:
+    disc:
+      content: "\u2192"
+      font-color: $color-secondary
+    circle:
+      content: "\u25b8"
+      font-color: $color-primary
+    square:
+      content: "\u2013"
+      font-color: $color-primary
+quote:
+  background-color: $color-secondary-light
+  border-width: 0
+  border-color: $color-primary
+  border-left-width: 4
+  border-radius: 8
+  font-size: 8
+role:
+  small:
+    font-size: 8
+  normal-size:
+    font-size: 9
+  big-size:
+    font-size: 15
+  color-vuln-informational:
+    font-color: $color-vuln-informational
+  color-vuln-low:
+    font-color: $color-vuln-low
+  color-vuln-medium:
+    font-color: $color-vuln-medium
+  color-vuln-high:
+    font-color: $color-vuln-high
+  color-vuln-critical:
+    font-color: $color-vuln-critical
+  orange:
+    font-color: $color-admonition-warning
+  uorange:
+    font-color: $color-admonition-warning
+    text-transform: uppercase
+  gold:
+    font-color: $color-secondary
+  ugold:
+    font-color: $color-secondary
+    text-transform: uppercase
+  blue:
+    font-color: $color-blue
+  ublue:
+    font-color: $color-blue
+    text-transform: uppercase
+  red:
+    font-color: $color-admonition-caution
+  ured:
+    font-color: $color-admonition-caution
+    text-transform: uppercase
+  green:
+    font-color: $color-admonition-tip
+  ugreen:
+    font-color: $color-admonition-tip
+    text-transform: uppercase
+  white:
+    font-color: $color-white
+  marron:
+    font-color: $color-primary
+  umarron:
+    font-color: $color-primary
+    text-transform: uppercase
+  bg-primary:
+    background-color: $color-primary
+    font-color: $color-white
+    padding: 10
+  tlpclear:
+    font-color: $color-tlp-clear
+    background-color: $color-tlp-bg
+    font-size: 12
+    text-transform: uppercase
+  tlpgreen:
+    font-color: $color-tlp-green
+    background-color: $color-tlp-bg
+    font-size: 12
+    text-transform: uppercase
+  tlpred:
+    font-color: $color-tlp-red
+    background-color: $color-tlp-bg
+    font-size: 12
+    text-transform: uppercase
+  tlpamber:
+    font-color: $color-tlp-amber
+    background-color: $color-tlp-bg
+    font-size: 12
+    text-transform: uppercase
+  legende:
+    font-color: $color-primary
+    font-family: LeagueSpartan
+    font-size: 9
+  logo:
+    font-color: $color-primary
+    font-family: LeagueSpartan
+    font-size: 13
+    font-style: bold
