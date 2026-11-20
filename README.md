@@ -11,9 +11,9 @@ gem install asciidoctor-pdf rouge
 ## Charte
 
 Le thème applique la charte graphique de Perceval (direction « Plan ») :
-- **Couleurs** : papier `#EFEEEC` (fond des pages), blanc cassé `#F8F8F6` (code, encadrés, lignes de tableau), encre `#121014` (texte), pourpre nuit `#2A1834` (couverture, en-têtes de tableau), pourpre `#A2457F` (liens), or `#E2BD3C` (filets, puces, cadres ; jamais en texte sur fond clair), gris clair `#BDBDBD` (filets).
+- **Couleurs** : papier `#EFEEEC` (fond des pages), blanc cassé `#F8F8F6` (code, encadrés, lignes de tableau), encre `#121014` (texte), minuit `#142030` (couverture), pourpre nuit `#2A1834` (en-têtes de tableau, rôle `aplat`), pourpre `#A2457F` (liens), or `#E2BD3C` (filets, puces, frise, colonne des encadrés ; jamais en texte sur fond clair), gris clair `#BDBDBD` (filets).
 - **Polices** : Jost (300, 400, 500) pour les titres et le texte, DM Mono pour le code, les commandes et les chiffres.
-- **Signes** : filet or sous les titres de niveau 1, puces en croix or, angles de 2 pt, couverture minuit avec croisillons et frise à points or, logo isolé en bas à gauche de la couverture et du pied de page.
+- **Signes** : filet or sous les titres de niveau 1, puces et cases à cocher en croix du logo, pictos de la charte dans les encadrés, angles de 2 pt, couverture minuit avec croisillons et frise à points or, logo isolé en bas à gauche de la couverture et du pied de page.
 - Couleurs TLP 2.0 (FIRST) et échelle de criticité des vulnérabilités hors charte, assombries pour rester lisibles sur papier (contraste ≥ 4,5:1).
 
 ## Structure du dépôt
@@ -66,6 +66,9 @@ Prénom NOM <email@perceval.sh>
 :toc-title: Sommaire
 :sectnums:
 :appendix-caption: Annexe
+:example-caption: Exemple
+:table-caption: Tableau
+:figure-caption: Figure
 :client: NOM DU CLIENT
 :website: www.perceval.sh
 :title-page: Titre affiché en en-tête
@@ -85,7 +88,8 @@ Prénom NOM <email@perceval.sh>
 | `:doc-version:` | Version du document | `1.0.0`, `2.3.1`, … |
 | `:doc-date:` | Date du document | `2026-05-10` |
 | `:client:` | Nom du client (apparaît en en-tête) | texte libre |
-| `:title-page:` | Titre court affiché dans l'en-tête des pages intérieures | texte libre |
+| `:title-page:` | Titre court affiché dans l'en-tête des pages intérieures (active aussi la page de garde) | texte libre |
+| `:icons:` | `image` : pictos de la charte dans les encadrés ; `font` : icônes Font Awesome au trait | `image`, `font` |
 
 3. Lancer la génération depuis le dossier contenant votre `.adoc` :
 
@@ -93,6 +97,7 @@ Prénom NOM <email@perceval.sh>
 asciidoctor-pdf \
     -a pdf-themesdir=/chemin/vers/themes \
     -a pdf-fontsdir=/chemin/vers/themes/fonts \
+    -a icons=image \
     mon-document.adoc
 ```
 
