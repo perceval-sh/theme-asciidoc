@@ -19,10 +19,6 @@ color:
   gris: "#9A9A9A" # inactif, repères (jamais en texte)
   gris-clair: "#BDBDBD" # filets et repères discrets
 
-  # -- Alias historiques (anciens rôles des documents existants) --
-  primary: $color-encre
-  secondary: $color-pourpre
-
   # -- TLP 2.0 (FIRST), couleurs normalisées hors charte --
   tlp-bg: "#000000"
   tlp-clear: "#FFFFFF"
@@ -32,17 +28,17 @@ color:
 
   # -- Criticité des vulnérabilités (échelle métier, hors charte) --
   # Teintes assombries pour tenir 4,5:1 en texte sur papier (règle de contraste de la charte)
-  vuln-informational: "#2B66A8"
-  vuln-low: "#8A6400"
-  vuln-medium: "#AD4F00"
-  vuln-high: "#C2261F"
-  vuln-critical: "#8E1414"
+  vuln-info: "#2B66A8"
+  vuln-faible: "#8A6400"
+  vuln-moyen: "#AD4F00"
+  vuln-eleve: "#C2261F"
+  vuln-critique: "#8E1414"
 
-  # -- Couleurs sémantiques des rôles historiques (4,5:1 minimum sur papier) --
-  blue: "#2B66A8"
-  green: "#1D7A3A"
+  # -- Couleurs sémantiques (4,5:1 minimum sur papier) --
+  bleu: "#2B66A8"
+  vert: "#1D7A3A"
   orange: "#AD4F00"
-  red: "#C2261F"
+  rouge: "#C2261F"
 
 page:
   layout: portrait
@@ -394,24 +390,25 @@ description-list:
   term-font-style: bold
 
 role:
-  # -- Rôles de la charte --
+  # -- Couleurs de la charte --
   encre:
     font-color: $color-encre
   pourpre:
     font-color: $color-pourpre
-  papier:
+  papier: # sur fond sombre
     font-color: $color-papier
   or: # uniquement sur fond sombre
     font-color: $color-or
+  aplat: # texte sur aplat pourpre nuit
+    background-color: $color-pourpre-nuit
+    font-color: $color-papier
+    padding: 10
+  # -- Typographie --
   chiffre:
     font-family: DMMono
-  mono:
-    font-family: DMMono
-  small:
+  petit:
     font-size: 8
-  normal-size:
-    font-size: 9
-  big-size:
+  grand:
     font-size: 15
   legende:
     font-family: Jost
@@ -422,55 +419,26 @@ role:
     font-style: bold
     font-size: 13
     font-color: $color-encre
-  bg-primary:
-    background-color: $color-pourpre-nuit
-    font-color: $color-papier
-    padding: 10
-  white:
-    font-color: $color-papier
-  # -- Alias historiques : gold et marron ne sont plus dans la charte --
-  gold:
-    font-color: $color-pourpre
-  ugold:
-    font-color: $color-pourpre
-    text-transform: uppercase
-  marron:
-    font-color: $color-encre
-  umarron:
-    font-color: $color-encre
-    text-transform: uppercase
   # -- Criticité des vulnérabilités --
-  color-vuln-informational:
-    font-color: $color-vuln-informational
-  color-vuln-low:
-    font-color: $color-vuln-low
-  color-vuln-medium:
-    font-color: $color-vuln-medium
-  color-vuln-high:
-    font-color: $color-vuln-high
-  color-vuln-critical:
-    font-color: $color-vuln-critical
+  vuln-info:
+    font-color: $color-vuln-info
+  vuln-faible:
+    font-color: $color-vuln-faible
+  vuln-moyen:
+    font-color: $color-vuln-moyen
+  vuln-eleve:
+    font-color: $color-vuln-eleve
+  vuln-critique:
+    font-color: $color-vuln-critique
   # -- Couleurs sémantiques --
-  blue:
-    font-color: $color-blue
-  ublue:
-    font-color: $color-blue
-    text-transform: uppercase
-  green:
-    font-color: $color-green
-  ugreen:
-    font-color: $color-green
-    text-transform: uppercase
+  rouge:
+    font-color: $color-rouge
   orange:
     font-color: $color-orange
-  uorange:
-    font-color: $color-orange
-    text-transform: uppercase
-  red:
-    font-color: $color-red
-  ured:
-    font-color: $color-red
-    text-transform: uppercase
+  vert:
+    font-color: $color-vert
+  bleu:
+    font-color: $color-bleu
   # -- TLP --
   tlpclear:
     font-family: DMMono

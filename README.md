@@ -100,11 +100,11 @@ asciidoctor-pdf \
 
 | Rôle | Rendu |
 |---|---|
-| `[.pourpre]#…#` | accent pourpre |
-| `[.encre]#…#`, `[.papier]#…#` | encre ; papier (sur fond sombre) |
-| `[.or]#…#` | or, uniquement sur fond sombre |
+| `[.encre]#…#`, `[.pourpre]#…#` | encre ; accent pourpre |
+| `[.papier]#…#`, `[.or]#…#` | papier ; or (uniquement sur fond sombre) |
+| `[.aplat]#…#` | texte papier sur aplat pourpre nuit |
 | `[.chiffre]#…#` | chiffres et valeurs en DM Mono |
-| `[.color-vuln-informational]`, `-low`, `-medium`, `-high`, `-critical` | criticité des vulnérabilités |
-| `[.tlpclear]`, `[.tlpgreen]`, `[.tlpamber]`, `[.tlpred]` | étiquettes TLP |
-| `[.red]`, `[.orange]`, `[.green]`, `[.blue]` (et `u…` en capitales) | couleurs sémantiques |
-| `[.gold]`, `[.marron]` | anciens rôles conservés : rendus en pourpre et en encre |
+| `[.petit]#…#`, `[.grand]#…#`, `[.legende]#…#` | tailles de texte ; légende |
+| `[.vuln-info]`, `[.vuln-faible]`, `[.vuln-moyen]`, `[.vuln-eleve]`, `[.vuln-critique]` | criticité des vulnérabilités |
+| `[.rouge]`, `[.orange]`, `[.vert]`, `[.bleu]` | couleurs sémantiques |
+| `[.tlpclear]`, `[.tlpgreen]`, `[.tlpamber]`, `[.tlpred]` | étiquettes TLP (aussi via `[.tlp{tlp}]`) |

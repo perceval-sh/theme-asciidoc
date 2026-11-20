@@ -87,22 +87,22 @@ La charte graphique définit un ensemble de rôles de couleur utilisables dans l
 | `.or` | `#E2BD3C` | Uniquement sur fond sombre (jamais en texte sur clair)
 | `.papier` | `#EFEEEC` | Texte sur fond sombre
 | `.chiffre` | DM Mono | [.chiffre]#2026-11-20 · 443/tcp · 9,8#
-| `.red` | `#C2261F` | [.red]#Alerte, erreur, élément critique#
+| `.rouge` | `#C2261F` | [.rouge]#Alerte, erreur, élément critique#
 | `.orange` | `#AD4F00` | [.orange]#Avertissement#
-| `.green` | `#1D7A3A` | [.green]#Validation, succès#
-| `.blue` | `#2B66A8` | [.blue]#Information, référence#
-| `.gold`, `.marron` | alias | Anciens rôles, rendus en pourpre et en encre
+| `.vert` | `#1D7A3A` | [.vert]#Validation, succès#
+| `.bleu` | `#2B66A8` | [.bleu]#Information, référence#
+| `.aplat` | pourpre nuit | [.aplat]#Texte sur aplat sombre#
 |===
 
 === Niveaux de Vulnérabilité
 
-Les niveaux de criticité CVE sont représentés par des couleurs dédiées :
+Les niveaux de criticité CVE ont chacun un rôle (`.vuln-info`, `.vuln-faible`, `.vuln-moyen`, `.vuln-eleve`, `.vuln-critique`) :
 
-* [.color-vuln-informational]#*INFORMATIONNEL*# : CVE Score 0.0
-* [.color-vuln-low]#*FAIBLE*# : CVE Score 0.1–3.9
-* [.color-vuln-medium]#*MOYEN*# : CVE Score 4.0–6.9
-* [.color-vuln-high]#*ÉLEVÉ*# : CVE Score 7.0–8.9
-* [.color-vuln-critical]#*CRITIQUE*# : CVE Score 9.0–10.0
+* [.vuln-info]#*INFORMATIONNEL*# : CVE Score 0.0
+* [.vuln-faible]#*FAIBLE*# : CVE Score 0.1–3.9
+* [.vuln-moyen]#*MOYEN*# : CVE Score 4.0–6.9
+* [.vuln-eleve]#*ÉLEVÉ*# : CVE Score 7.0–8.9
+* [.vuln-critique]#*CRITIQUE*# : CVE Score 9.0–10.0
 
 === Classifications TLP
 
@@ -176,11 +176,11 @@ Plateforme d'orchestration et de gestion de configuration orientée événements
 |===
 | Composant | Version | Statut
 
-| Kubernetes | 1.29.3 | [.green]#*Actif*#
-| Prometheus | 2.51.0 | [.green]#*Actif*#
+| Kubernetes | 1.29.3 | [.vert]#*Actif*#
+| Prometheus | 2.51.0 | [.vert]#*Actif*#
 | Grafana | 10.4.1 | [.orange]#*Maintenance*#
-| Alertmanager | 0.27.0 | [.green]#*Actif*#
-| Loki | 3.0.0 | [.red]#*Déprécié*#
+| Alertmanager | 0.27.0 | [.vert]#*Actif*#
+| Loki | 3.0.0 | [.rouge]#*Déprécié*#
 |===
 
 === Tableau de Matrice de Risques
@@ -189,11 +189,11 @@ Plateforme d'orchestration et de gestion de configuration orientée événements
 |===
 | ID | Risque | Probabilité | Impact | Mitigation
 
-| R-01 | Indisponibilité base de données | [.color-vuln-medium]#Moyen# | [.color-vuln-critical]#Critique# | Réplication multi-zone, backups quotidiens
-| R-02 | Fuite de données sensibles | [.color-vuln-low]#Faible# | [.color-vuln-critical]#Critique# | Chiffrement at-rest et in-transit, audit logs
-| R-03 | Surcharge CPU collecte logs | [.color-vuln-critical]#Élevé# | [.color-vuln-medium]#Moyen# | Auto-scaling horizontal, throttling
-| R-04 | Expiration certificat TLS | [.color-vuln-medium]#Moyen# | [.color-vuln-critical]#Élevé# | Rotation automatique via cert-manager
-| R-05 | Accès non autorisé API | [.color-vuln-low]#Faible# | [.color-vuln-critical]#Critique# | mTLS, RBAC, MFA obligatoire
+| R-01 | Indisponibilité base de données | [.vuln-moyen]#Moyen# | [.vuln-critique]#Critique# | Réplication multi-zone, backups quotidiens
+| R-02 | Fuite de données sensibles | [.vuln-faible]#Faible# | [.vuln-critique]#Critique# | Chiffrement at-rest et in-transit, audit logs
+| R-03 | Surcharge CPU collecte logs | [.vuln-critique]#Élevé# | [.vuln-moyen]#Moyen# | Auto-scaling horizontal, throttling
+| R-04 | Expiration certificat TLS | [.vuln-moyen]#Moyen# | [.vuln-critique]#Élevé# | Rotation automatique via cert-manager
+| R-05 | Accès non autorisé API | [.vuln-faible]#Faible# | [.vuln-critique]#Critique# | mTLS, RBAC, MFA obligatoire
 |===
 
 === Tableau de Ports & Protocoles
