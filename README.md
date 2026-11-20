@@ -1,4 +1,4 @@
-# Themes PERCEVAL — Asciidoctor PDF
+# Themes PERCEVAL : Asciidoctor PDF
 
 Thèmes et gabarit pour la génération de documents PDF professionnels avec Asciidoctor.
 
@@ -8,23 +8,31 @@ Thèmes et gabarit pour la génération de documents PDF professionnels avec Asc
 gem install asciidoctor-pdf rouge
 ```
 
+## Charte
+
+Le thème applique la charte graphique de Perceval (direction « Plan ») :
+- **Couleurs** : papier `#EFEEEC` (fond des pages), blanc cassé `#F8F8F6` (code, encadrés, lignes de tableau), encre `#121014` (texte), pourpre nuit `#2A1834` (couverture, en-têtes de tableau), pourpre `#A2457F` (liens), or `#E2BD3C` (filets, puces, cadres ; jamais en texte sur fond clair), gris clair `#BDBDBD` (filets).
+- **Polices** : Jost (300, 400, 500) pour les titres et le texte, DM Mono pour le code, les commandes et les chiffres.
+- **Signes** : filet or sous les titres de niveau 1, puces en croix or, angles de 2 pt, couverture minuit avec croisillons et frise à points or, logo isolé en bas à gauche de la couverture et du pied de page.
+- Couleurs TLP 2.0 (FIRST) et échelle de criticité des vulnérabilités hors charte, assombries pour rester lisibles sur papier (contraste ≥ 4,5:1).
+
 ## Structure du dépôt
 
 ```
 theme-asciidoc/
-├── demo.adoc                  # Document de référence (charte graphique complète)
-├── demo.pdf                   # Rendu PDF de référence
-├── img/                       # Images utilisées dans demo.adoc
+├── demo.adoc                     # Document de référence (tous les éléments du thème)
+├── demo.pdf                      # Rendu PDF de référence
 └── themes/
-    ├── PERCEVAL-A4-theme.yml  # Thème principal (couleurs, typographie, mise en page)
-    ├── fonts/                 # Polices embarquées
-    │   ├── JetBrains_Mono/    # Code et blocs source
-    │   ├── League_Spartan/    # Titres
-    │   └── Sofia_Sans/        # Corps de texte
-    └── img/                   # Images du thème (couverture, logo, fonds)
-        ├── cover-perceval.svg
-        ├── logo-perceval.jpg
-        └── bg-perceval-portrait.png
+    ├── PERCEVAL-A4-theme.yml     # Thème (couleurs, typographie, mise en page)
+    ├── icones/                   # Pictos des encadrés (charte : info, ampoule, cible, alerte, bouclier)
+    ├── fonts/
+    │   ├── Jost/                 # Titres et texte (OFL)
+    │   ├── DM_Mono/              # Code, commandes, chiffres (OFL)
+    │   └── Perceval_Croix/       # Croix du logo, pour les puces et cases à cocher
+    └── img/
+        ├── couverture-perceval.svg           # Fond de couverture (logo inclus)
+        ├── perceval-logo-horizontal.svg      # Pied de page
+        └── perceval-logo-horizontal-sombre.svg
 ```
 
 ## Générer un PDF
@@ -33,11 +41,13 @@ theme-asciidoc/
 asciidoctor-pdf \
     -a pdf-themesdir=themes \
     -a pdf-fontsdir=themes/fonts \
+    -a icons=image \
     mon-document.adoc
 ```
 
-- `-a pdf-themesdir=themes` — indique le dossier contenant le fichier `.yml` du thème
-- `-a pdf-fontsdir=themes/fonts` — indique le dossier contenant les polices
+- `-a pdf-themesdir=themes` : indique le dossier contenant le fichier `.yml` du thème
+- `-a pdf-fontsdir=themes/fonts` : indique le dossier contenant les polices
+- `-a icons=image` : encadrés (NOTE, TIP, IMPORTANT, WARNING, CAUTION) illustrés avec les pictos de la charte ; sans cette option ou avec `:icons: font`, icônes Font Awesome au trait
 
 ## Créer un nouveau document
 
@@ -49,7 +59,7 @@ asciidoctor-pdf \
 Prénom NOM <email@perceval.sh>
 :pdf-page-size: A4
 :pdf-theme: PERCEVAL-A4-theme.yml
-:icons: font
+:icons: image
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 4
@@ -85,3 +95,16 @@ asciidoctor-pdf \
     -a pdf-fontsdir=/chemin/vers/themes/fonts \
     mon-document.adoc
 ```
+
+## Rôles disponibles
+
+| Rôle | Rendu |
+|---|---|
+| `[.encre]#…#`, `[.pourpre]#…#` | encre ; accent pourpre |
+| `[.papier]#…#`, `[.or]#…#` | papier ; or (uniquement sur fond sombre) |
+| `[.aplat]#…#` | texte papier sur aplat pourpre nuit |
+| `[.chiffre]#…#` | chiffres et valeurs en DM Mono |
+| `[.petit]#…#`, `[.grand]#…#`, `[.legende]#…#` | tailles de texte ; légende |
+| `[.vuln-info]`, `[.vuln-faible]`, `[.vuln-moyen]`, `[.vuln-eleve]`, `[.vuln-critique]` | criticité des vulnérabilités |
+| `[.rouge]`, `[.orange]`, `[.vert]`, `[.bleu]` | couleurs sémantiques |
+| `[.tlpclear]`, `[.tlpgreen]`, `[.tlpamber]`, `[.tlpred]` | étiquettes TLP (aussi via `[.tlp{tlp}]`) |

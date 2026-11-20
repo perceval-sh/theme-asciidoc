@@ -1,369 +1,462 @@
 extends: base
 
 # ==============================================================================
-# PALETTE DE COULEURS
-# Modifier ici pour changer les couleurs de tout le document
+# THÈME PERCEVAL A4 : charte graphique G · Plan
+# Dominante claire (papier), un sombre profond (pourpre nuit), accents pourpre
+# et or. Or jamais en texte sur fond clair, gris jamais en texte.
+# Jost (300/400/500, jamais 600+) pour titres et texte, DM Mono pour le technique.
 # ==============================================================================
 color:
-  # -- Marque --
-  primary: "#4e4427" # marron foncé — couleur principale de la marque
-  primary-light: "#f6f5f4" # beige clair — fond admonitions/sidebar
-  secondary: "#be9e12" # or/gold — couleur d'accent principale
-  secondary-light: "#fbfaf3" # beige code — fond blocs de code
-  blue: "#4A90D9" # bleu neutre — rôles .blue/.ublue
+  # -- Charte --
+  papier: "#EFEEEC" # fond, dominante
+  blanc-casse: "#F8F8F6" # surfaces : code, encadrés, lignes de tableau
+  encre: "#121014" # texte, traits
+  pourpre-nuit: "#2A1834" # sombre principal : couverture, en-têtes de tableau
+  minuit: "#142030" # sombre secondaire
+  sarcelle-nuit: "#16302E" # sombre technique
+  pourpre: "#A2457F" # accent : liens, détails
+  or: "#E2BD3C" # accent : filets, puces, cadres (jamais en texte sur clair)
+  gris: "#9A9A9A" # inactif, repères (jamais en texte)
+  gris-clair: "#BDBDBD" # filets et repères discrets
 
-  black: "#000000"
-  white: "#ffffff"
-  # -- TLP (Traffic Light Protocol) --
-  tlp-bg: "#000000" # fond commun à tous les niveaux TLP
-  tlp-clear: $color-white # TLP:CLEAR
-  tlp-green: "#00ff00" # TLP:GREEN
-  tlp-amber: "#f47424" # TLP:AMBER
-  tlp-red: "#ff0000" # TLP:RED
+  # -- TLP 2.0 (FIRST), couleurs normalisées hors charte --
+  tlp-bg: "#000000"
+  tlp-clear: "#FFFFFF"
+  tlp-green: "#33FF00"
+  tlp-amber: "#FFC000"
+  tlp-red: "#FF2B2B"
 
-  # -- Criticité des vulnérabilités --
-  vuln-informational: "#4A90D9" # Informationnel — bleu neutre
-  vuln-low: "#F0C040" # Faible — jaune ambré
-  vuln-medium: "#E07B20" # Moyen — orange modéré
-  vuln-high: "#E53935" # Élevé — rouge vif (contraste renforcé)
-  vuln-critical: "#B71C1C" # Critique — rouge sombre (contraste max)
+  # -- Criticité des vulnérabilités (échelle métier, hors charte) --
+  # Teintes assombries pour tenir 4,5:1 en texte sur papier (règle de contraste de la charte)
+  vuln-info: "#2B66A8"
+  vuln-faible: "#8A6400"
+  vuln-moyen: "#AD4F00"
+  vuln-eleve: "#C2261F"
+  vuln-critique: "#8E1414"
 
-  # -- Admonitions --
-  admonition-note: "#4A90D9" # bleu — info
-  admonition-tip: "#22c55e" # vert — conseil
-  admonition-warning: "#f97316" # orange — avertissement
-  admonition-caution: "#ef4242" # rouge — danger/feu
-  admonition-important: "#ef4242" # rouge — important
+  # -- Couleurs sémantiques (4,5:1 minimum sur papier) --
+  bleu: "#2B66A8"
+  vert: "#1D7A3A"
+  orange: "#AD4F00"
+  rouge: "#C2261F"
 
 page:
-  #layout: landscape
   layout: portrait
-  margin: [2.5cm, 2.5cm, 2.5cm, 2.5cm]
   size: A4
-  #background-image: image::./img/bg-perceval-{page-layout}.png[fit=cover]
+  margin: [2.5cm, 3cm, 2.5cm, 3cm] # 15 cm de ligne : environ 80 caractères
+  background-color: $color-papier
+
 font:
   catalog:
     merge: true
-    LeagueSpartan:
-      normal: League_Spartan/static/LeagueSpartan-Regular.ttf
-      italic: League_Spartan/static/LeagueSpartan-Regular.ttf
-      bold: League_Spartan/static/LeagueSpartan-Bold.ttf
-      bold_italic: League_Spartan/static/LeagueSpartan-Bold.ttf
-    Montserrat:
-      normal: Montserrat/static/Montserrat-Regular.ttf
-      italic: Montserrat/static/Montserrat-Italic.ttf
-      bold: Montserrat/static/Montserrat-Bold.ttf
-      bold_italic: Montserrat/static/Montserrat-BoldItalic.ttf
-    SofiaSans:
-      normal: Sofia_Sans/static/SofiaSans-Regular.ttf
-      italic: Sofia_Sans/static/SofiaSans-Italic.ttf
-      bold: Sofia_Sans/static/SofiaSans-SemiBold.ttf
-      bold_italic: Sofia_Sans/static/SofiaSans-SemiBoldItalic.ttf
-    JetBrainsMono:
-      normal: JetBrains_Mono/static/JetBrainsMono-Regular.ttf
-      italic: JetBrains_Mono/static/JetBrainsMono-Italic.ttf
-      bold: JetBrains_Mono/static/JetBrainsMono-Bold.ttf
-      bold_italic: JetBrains_Mono/static/JetBrainsMono-BoldItalic.ttf
-    
-base:
-  font-color: $color-black
-  font-family: Montserrat
-  font-size: 10.5
-  align: justify
-  line-height-length: 16
-vertical-spacing: $base-line-height-length
-vertical-spacing-top: $base-line-height-length + 8
+    Jost:
+      normal: Jost/Jost-Regular.ttf
+      italic: Jost/Jost-RegularItalic.ttf
+      bold: Jost/Jost-Medium.ttf
+      bold_italic: Jost/Jost-MediumItalic.ttf
+    JostLight:
+      normal: Jost/Jost-Light.ttf
+      italic: Jost/Jost-LightItalic.ttf
+      bold: Jost/Jost-Regular.ttf
+      bold_italic: Jost/Jost-RegularItalic.ttf
+    DMMono:
+      normal: DM_Mono/DMMono-Regular.ttf
+      italic: DM_Mono/DMMono-Italic.ttf
+      bold: DM_Mono/DMMono-Regular.ttf
+      bold_italic: DM_Mono/DMMono-Italic.ttf
+    PercevalCroix:
+      normal: Perceval_Croix/PercevalCroix-Regular.ttf
+      italic: Perceval_Croix/PercevalCroix-Regular.ttf
+      bold: Perceval_Croix/PercevalCroix-Regular.ttf
+      bold_italic: Perceval_Croix/PercevalCroix-Regular.ttf
 
+base:
+  font-color: $color-encre
+  font-family: Jost
+  font-size: 11
+  align: left # fer à gauche : pas de trous entre les mots
+  line-height-length: 17
+  border-color: $color-gris-clair
+  border-radius: 2
+  border-width: 0.5
+vertical-spacing: $base-line-height-length
+vertical-spacing-top: $base-line-height-length + 10
+
+# -- Couverture : fond minuit, croisillons, frises à points or, logo isolé en bas à gauche --
 title-page:
-  background-image: image::img/cover-perceval.svg[scale=100%,fit=cover]
-  background-color: $color-primary
-  font-style: bold
-  font-color: $color-white
-  align: right
+  background-color: $color-minuit
+  background-image: image::img/couverture-perceval.svg[fit=cover]
+  font-color: $color-papier
+  align: left
   logo:
-    image: image::./img/logo-perceval.jpg[pdfwidth=6cm,align=left,top=94%]
+    display: none
   title:
+    top: 40%
+    font-family: Jost
+    font-style: bold
     font-size: 44
-    font-style: bold
-    font-family: LeagueSpartan
-    align: right
-    margin-top: 110
-    background-color: $color-primary
-    background-padding: 4
-    background-radius: 2
-  subtitle:
-    font-size: 24
+    font-color: $color-papier
+    line-height: 1.1
     margin-top: 0
+    margin-bottom: 12
+  subtitle:
+    font-family: JostLight
+    font-style: normal
+    font-size: 20
+    font-color: $color-papier
+    line-height: 1.25
   authors:
-    font-style: bold
-    align: right
+    font-family: Jost
+    font-style: normal
+    font-size: 10
+    font-color: $color-papier
+    margin-top: 48
     content: |
-      [.tlp{tlp}]#*TLP:{tlp}*# +
+      [.tlp{tlp}]#TLP:{tlp}# +
       {author} +
       pass:a[{website}] +
-      {doc-date} +
-      v{doc-version}
-    margin-top: 150
-toc:
-  title:
-    font-size: 28
-    text-transform: uppercase
-    font-color: $color-primary
-  font-color: $color-primary
-  font-style: bold
-  h2-font-color: $color-primary
-  h2-font-size: 12
-  h2-text-transform: uppercase
-  h3-font-color: $color-secondary
-  h3-font-size: 10
-  h4-font-color: $color-primary
-  h4-font-size: 8
-  h4-font-style: bold
-  h5-font-color: $color-secondary
-  h5-font-size: 8
-  h5-font-style: bold
+      Version [.chiffre]#{doc-version}# du [.chiffre]#{doc-date}#
+  revision:
+    display: none
+
+# -- Titres : une seule couleur, casse normale, filet or sous le niveau 1 --
 heading:
+  font-family: Jost
+  font-color: $color-encre
+  font-style: normal
   text-transform: none
-  font-style: bold
-  font-family: LeagueSpartan
   line-height: 1.2
-  margin-bottom: $vertical-spacing
-  #margin: [5px, 0px, 10px, 0px]
+  margin-top: $vertical-spacing-top
+  margin-bottom: $vertical-spacing * 0.75
+  h1:
+    font-size: 33
   h2:
-    font-color: $color-primary
-    font-size: 24
-    text-transform: uppercase
-    margin-top: $vertical-spacing-top
-    #margin-bottom: -$vertical-spacing
+    font-size: 25
+    padding: [0, 0, 6, 0]
+    border-width: [0, 0, 1, 0]
+    border-color: $color-or
+    margin-bottom: $vertical-spacing
   h3:
-    font-color: $color-secondary
-    font-size: 18
+    font-size: 18.5
   h4:
-    font-color: $color-primary
     font-size: 14
     font-style: bold
-    indent: $base-font-size * 2
   h5:
-    font-color: $color-secondary
     font-size: 11
     font-style: bold
-    indent: $base-font-size * 3
-link:
-  font-color: $color-secondary
-  text-decoration: underline
-header:
-  margin: [0.1cm, 0cm, 0cm, 0cm]
-  height: $base-line-height-length * 2.5
-  border-width: 0
-  font-color: $color-primary
-  font-size: 8
+  h6:
+    font-size: 10.5
+    font-style: bold
+
+toc:
+  font-family: Jost
+  font-color: $color-encre
   font-style: normal
+  line-height: 1.3
+  dot-leader:
+    color: $color-gris-clair
+  title:
+    font-size: 25
+    font-style: normal
+    font-color: $color-encre
+    text-transform: none
+  h2-font-style: bold
+  h2-font-size: 11
+  h3-font-size: 10
+  h4-font-size: 9.5
+  h5-font-size: 9
+
+link:
+  font-color: $color-pourpre
+  text-decoration: underline
+  text-decoration-color: $color-pourpre
+  text-decoration-width: 0.5
+
+codespan:
+  font-family: DMMono
+  font-color: $color-encre
+  font-size: 0.9em
+  background-color: $color-blanc-casse
+  border-radius: 2
+
+header:
+  height: $base-line-height-length * 3
+  padding: [12, 0, 0, 0]
+  border-width: 0
+  font-family: Jost
+  font-color: $color-encre
+  font-size: 8
+  vertical-align: middle
   recto:
-    right:
-      content: "{title-page}"
-    center:
-      content: " [.tlp{tlp}]#*TLP:{tlp}*# "
     left:
       content: "{client}"
-  verso:
-    right:
-      content: $header_recto_right_content
     center:
-      content: $header_recto_center_content
+      content: "[.tlp{tlp}]#TLP:{tlp}#"
+    right:
+      content: "{title-page}"
+  verso:
     left:
-      content: $header_recto_left_content
+      content: $header-recto-left-content
+    center:
+      content: $header-recto-center-content
+    right:
+      content: $header-recto-right-content
 
+# -- Pied de page : logo toujours en bas à gauche, chiffres en DM Mono --
 footer:
-  margin: [0cm, 0cm, 0cm, 0cm]
-  height: $base-line-height-length * 2
+  height: $base-line-height-length * 3
+  padding: [0, 0, 12, 0]
   border-width: 0
-  font-color: $color-primary
+  font-family: Jost
+  font-color: $color-encre
   font-size: 8
-  font-style: normal
+  vertical-align: middle
   recto:
-    right:
-      content: "{doc-date} &nbsp;&nbsp;&nbsp;&nbsp; [.marron]#*{page-number}*# [.gold]#*/*# [.marron]#{page-count}#"
     left:
+      content: "image:img/perceval-logo-horizontal.svg[pdfwidth=3cm]"
+    center:
       content: ""
-    center:
-      content: "[.logo]#PERCEVAL#"
-  verso:
     right:
-      content: $footer_recto_right_content
+      content: "[.chiffre]#{doc-date}{nbsp}{nbsp}{nbsp}{nbsp}{page-number} / {page-count}#"
+  verso:
     left:
-      content: $footer_recto_left_content
+      content: $footer-recto-left-content
     center:
-      content: $footer_recto_center_content
+      content: $footer-recto-center-content
+    right:
+      content: $footer-recto-right-content
 
+# -- Encadrés : surface blanc cassé, filet gris clair, angles 2 pt --
 admonition:
-  font-color: $color-primary
-  background-color: $color-primary-light
+  font-color: $color-encre
+  background-color: $color-blanc-casse
+  border-width: 0.5
+  border-color: $color-gris-clair
   border-radius: 2
-  border-width: 1
-  border-color: $color-primary # fallback si l'extension n'est pas chargée
-  column-rule-width: 0
-  # Clés customs lues par l'extension perceval-a4.rb
-  note-border-color: $color-admonition-note
-  tip-border-color: $color-admonition-tip
-  warning-border-color: $color-admonition-warning
-  caution-border-color: $color-admonition-caution
-  important-border-color: $color-admonition-important
+  padding: [8, 12, 8, 12]
+  column-rule-color: $color-or
+  column-rule-width: 1
   label:
+    font-family: Jost
+    font-style: bold
+    font-color: $color-encre
+    text-transform: none
+  label-min-width: 40
+  # Icônes : pictos de la charte (trait 1 px, détail pourpre), utilisés quand le document déclare :icons: image
+  # Avec :icons: font, repli sur des icônes au trait de Font Awesome
+  icon:
     note:
-      font-color: $color-admonition-note
+      image: icones/note.svg
+      name: far-comment-alt
+      stroke-color: $color-minuit
     tip:
-      font-color: $color-admonition-tip
-    warning:
-      font-color: $color-admonition-warning
-    caution:
-      font-color: $color-admonition-caution
+      image: icones/tip.svg
+      name: far-lightbulb
+      stroke-color: $color-sarcelle-nuit
     important:
-      font-color: $color-admonition-important
+      image: icones/important.svg
+      name: far-bell
+      stroke-color: $color-pourpre
+    warning:
+      image: icones/warning.svg
+      name: far-eye
+      stroke-color: $color-pourpre
+    caution:
+      image: icones/caution.svg
+      name: far-hand-paper
+      stroke-color: $color-pourpre-nuit
 
 sidebar:
-  font-color: $color-primary
-  background-color: $color-primary-light
+  font-color: $color-encre
+  background-color: $color-blanc-casse
+  border-color: $color-gris-clair
+  border-width: 0.5
   border-radius: 2
-  border-width: 0
+  title:
+    font-family: Jost
+    font-style: bold
+    font-color: $color-encre
+
+example:
+  background-color: $color-blanc-casse
+  border-color: $color-gris-clair
+  border-width: 0.5
+  border-radius: 2
+
 code:
-  background-color: $color-secondary-light
-  font-family: JetBrainsMono
-  font-size: 8
+  font-family: DMMono
+  font-size: 8.5
+  font-color: $color-encre
+  background-color: $color-blanc-casse
+  border-color: $color-gris-clair
+  border-width: 0.5
+  border-radius: 2
+  line-height: 1.4
+
+caption:
+  font-family: Jost
+  font-style: italic
+  font-color: $color-encre
+  font-size: 9
+  text-align: left
+
 image:
   align: center
   width: 85%
   caption:
-    align: center
-    font-color: $color-secondary
+    text-align: center
+
 table:
-  head_background_color: $color-primary
-  border_color: $color-primary
-  background-color: $color-primary-light
-  head_font_color: $color-white
-  stripes: odd
-  align: center
-  width: 100%
-  caption:
-    align: center
-    font-color: $color-secondary
+  font-size: 9.5
+  background-color: transparent
+  border-color: $color-gris-clair
+  border-width: 0.5
+  grid-color: $color-gris-clair
+  grid-width: 0.5
+  head:
+    background-color: $color-pourpre-nuit
+    font-color: $color-papier
+    font-style: bold
+    border-bottom-width: 0.5
+    border-bottom-color: $color-gris-clair
   body:
-    stripe-background-color: $color-primary-light
-cover:
-  front:
-    image: ~
-  back:
-    image: ~
-source:
-  background-color: $color-secondary-light
-  border-radius: 8
-  font-family: JetBrainsMono
-  font-size: 8
-verse:
-  background-color: $color-primary-light
+    stripe-background-color: $color-blanc-casse
+  stripes: even
+  cell-padding: [4, 6, 4, 6]
+  caption:
+    text-align: center
+
+# -- Citations : Jost Light, filet or --
+quote:
+  font-family: JostLight
+  font-size: 13
+  font-color: $color-encre
+  line-height: 1.3
   border-width: 0
-  border-color: $color-primary
-  border-left-width: 4
-  font-size: 8
+  border-left-width: 1.5
+  border-color: $color-or
+  padding: [0, 12, 0, 14]
+  cite:
+    font-family: Jost
+    font-size: 9
+    font-color: $color-encre
+
+verse:
+  font-family: JostLight
+  font-size: 11
+  font-color: $color-encre
+  border-width: 0
+  border-left-width: 1.5
+  border-color: $color-or
+  padding: [0, 12, 0, 14]
+
+thematic-break:
+  border-color: $color-or
+  border-width: 0.75
+
 list:
   indent: 20
-  item-spacing: 2
+  item-spacing: 3
+
+# -- Puces : croix pleine or (jamais un point) --
 ulist:
   marker:
+    font-family: PercevalCroix
+    font-color: $color-or
+    checked:
+      content: "\u2611"
+      font-color: $color-encre
+      font-size: 9
+    unchecked:
+      content: "\u2610"
+      font-color: $color-encre
+      font-size: 9
     disc:
-      content: "\u2192"
-      font-color: $color-secondary
+      content: "\u271A"
+      font-size: 11
     circle:
-      content: "\u25b8"
-      font-color: $color-primary
+      content: "\u271A"
+      font-size: 9.5
     square:
-      content: "\u2013"
-      font-color: $color-primary
-quote:
-  background-color: $color-secondary-light
-  border-width: 0
-  border-color: $color-primary
-  border-left-width: 4
-  border-radius: 8
-  font-size: 8
+      content: "\u271A"
+      font-size: 8
+
+olist:
+  marker:
+    font-family: DMMono
+    font-color: $color-encre
+
+description-list:
+  term-font-style: bold
+
 role:
-  small:
-    font-size: 8
-  normal-size:
-    font-size: 9
-  big-size:
-    font-size: 15
-  color-vuln-informational:
-    font-color: $color-vuln-informational
-  color-vuln-low:
-    font-color: $color-vuln-low
-  color-vuln-medium:
-    font-color: $color-vuln-medium
-  color-vuln-high:
-    font-color: $color-vuln-high
-  color-vuln-critical:
-    font-color: $color-vuln-critical
-  orange:
-    font-color: $color-admonition-warning
-  uorange:
-    font-color: $color-admonition-warning
-    text-transform: uppercase
-  gold:
-    font-color: $color-secondary
-  ugold:
-    font-color: $color-secondary
-    text-transform: uppercase
-  blue:
-    font-color: $color-blue
-  ublue:
-    font-color: $color-blue
-    text-transform: uppercase
-  red:
-    font-color: $color-admonition-caution
-  ured:
-    font-color: $color-admonition-caution
-    text-transform: uppercase
-  green:
-    font-color: $color-admonition-tip
-  ugreen:
-    font-color: $color-admonition-tip
-    text-transform: uppercase
-  white:
-    font-color: $color-white
-  marron:
-    font-color: $color-primary
-  umarron:
-    font-color: $color-primary
-    text-transform: uppercase
-  bg-primary:
-    background-color: $color-primary
-    font-color: $color-white
+  # -- Couleurs de la charte --
+  encre:
+    font-color: $color-encre
+  pourpre:
+    font-color: $color-pourpre
+  papier: # sur fond sombre
+    font-color: $color-papier
+  or: # uniquement sur fond sombre
+    font-color: $color-or
+  aplat: # texte sur aplat pourpre nuit
+    background-color: $color-pourpre-nuit
+    font-color: $color-papier
     padding: 10
+  # -- Typographie --
+  chiffre:
+    font-family: DMMono
+  petit:
+    font-size: 8
+  grand:
+    font-size: 15
+  legende:
+    font-family: Jost
+    font-size: 9
+    font-color: $color-encre
+  logo:
+    font-family: Jost
+    font-style: bold
+    font-size: 13
+    font-color: $color-encre
+  # -- Criticité des vulnérabilités --
+  vuln-info:
+    font-color: $color-vuln-info
+  vuln-faible:
+    font-color: $color-vuln-faible
+  vuln-moyen:
+    font-color: $color-vuln-moyen
+  vuln-eleve:
+    font-color: $color-vuln-eleve
+  vuln-critique:
+    font-color: $color-vuln-critique
+  # -- Couleurs sémantiques --
+  rouge:
+    font-color: $color-rouge
+  orange:
+    font-color: $color-orange
+  vert:
+    font-color: $color-vert
+  bleu:
+    font-color: $color-bleu
+  # -- TLP --
   tlpclear:
+    font-family: DMMono
     font-color: $color-tlp-clear
     background-color: $color-tlp-bg
-    font-size: 12
     text-transform: uppercase
   tlpgreen:
+    font-family: DMMono
     font-color: $color-tlp-green
     background-color: $color-tlp-bg
-    font-size: 12
-    text-transform: uppercase
-  tlpred:
-    font-color: $color-tlp-red
-    background-color: $color-tlp-bg
-    font-size: 12
     text-transform: uppercase
   tlpamber:
+    font-family: DMMono
     font-color: $color-tlp-amber
     background-color: $color-tlp-bg
-    font-size: 12
     text-transform: uppercase
-  legende:
-    font-color: $color-primary
-    font-family: LeagueSpartan
-    font-size: 9
-  logo:
-    font-color: $color-primary
-    font-family: LeagueSpartan
-    font-size: 13
-    font-style: bold
+  tlpred:
+    font-family: DMMono
+    font-color: $color-tlp-red
+    background-color: $color-tlp-bg
+    text-transform: uppercase
