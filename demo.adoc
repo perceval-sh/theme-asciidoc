@@ -3,7 +3,7 @@ Julien POLLET <contact@perceval.sh>
 // ── Rendu PDF ─────────────────────────────────────────────
 :pdf-page-size: A4
 :pdf-theme: PERCEVAL-A4-theme.yml
-:icons: font
+:icons: image
 :source-highlighter: rouge
 // ── Structure ─────────────────────────────────────────────
 :toc: macro
@@ -11,14 +11,17 @@ Julien POLLET <contact@perceval.sh>
 :toc-title: Sommaire
 :sectnums:
 :appendix-caption: Annexe
+:example-caption: Exemple
+:table-caption: Tableau
+:figure-caption: Figure
 // ── Métadonnées ───────────────────────────────────────────
 :description: Définition des éléments graphiques de la charte graphique de Perceval
 :client: PERCEVAL
 :website: www.perceval.sh
 :title-page: Charte Graphique
 :tlp: clear
-:doc-version: 2.0.0
-:doc-date: 2026-05-10
+:doc-version: 3.0.0
+:doc-date: 2026-11-20
 // ── Ressources ────────────────────────────────────────────
 :imagesdir: img/
 :hide-uri-scheme:
@@ -28,11 +31,12 @@ Julien POLLET <contact@perceval.sh>
 [discrete]
 == Historique des versions
 
-[cols="10,15,20,~", options="header"]
+[cols="13,15,22,~", options="header"]
 |===
 | Version | Date | Auteur | Modifications
 
 | 1.0.0 | 2026-01-15 | Perceval | Création initiale du document
+| 3.0.0 | 2026-11-20 | Perceval | Charte G · Plan : papier, pourpre nuit, pourpre et or ; Jost et DM Mono
 |===
 
 <<<
@@ -40,7 +44,7 @@ Julien POLLET <contact@perceval.sh>
 toc::[]
 
 // ──────────────────────────────────────────────
-// PARTIE 1 — TYPOGRAPHIE
+// PARTIE 1 : TYPOGRAPHIE
 // ──────────────────────────────────────────────
 
 <<<
@@ -50,22 +54,22 @@ toc::[]
 
 ==== Titre de niveau 4
 
-Paragraphe de corps de texte standard. La police **Montserrat** est utilisée pour l'ensemble des contenus.
-Le texte est justifié avec un interligne adapté à la lecture de documents techniques.
+Paragraphe de corps de texte standard. La police **Jost** est utilisée pour les titres et le texte, **DM Mono** pour le code, les commandes et les chiffres.
+Le texte est aligné à gauche, avec un interligne adapté à la lecture de documents techniques.
 
 ===== Titre de niveau 5
 
-Un sous-titre de niveau 5 permet de segmenter finement les sections longues. Il hérite de la couleur
-accentuée `#be9e12` pour rester lisible dans la hiérarchie visuelle.
+Un sous-titre de niveau 5 permet de segmenter finement les sections longues. Les titres restent d'une seule
+couleur (encre) : la hiérarchie passe par la taille et la graisse, jamais par un mot coloré.
 
 === Formatage Inline
 
 Voici un exemple complet de formatage inline :
 
-* *Texte en gras* — emphase forte
-* _Texte en italique_ — emphase légère
-* `code inline` — élément technique
-* *_Gras et italique_* — double emphase
+* *Texte en gras* : emphase forte
+* _Texte en italique_ : emphase légère
+* `code inline` : élément technique
+* *_Gras et italique_* : double emphase
 * ^exposant^ et ~indice~
 * [.line-through]#Texte barré#
 * Lien : https://www.perceval.sh[perceval.sh]
@@ -78,26 +82,27 @@ La charte graphique définit un ensemble de rôles de couleur utilisables dans l
 |===
 | Rôle | Couleur | Exemple d'utilisation
 
-| `.gold` | `#be9e12` | [.gold]#Texte accentué or — couleur primaire Perceval#
-| `.ugold` | `#be9e12` uppercase | [.ugold]#titre ou label en majuscules#
-| `.marron` | `#4e4427` | [.marron]#Texte secondaire brun foncé#
-| `.red` | `#ef4242` | [.red]#Alerte, erreur, élément critique#
-| `.ured` | `#ef4242` uppercase | [.ured]#mention critique#
-| `.orange` | `#f97316` | [.orange]#Avertissement orange#
-| `.green` | `#22c55e` | [.green]#Validation, succès#
-| `.blue` | `#4A90D9` | [.blue]#Information, lien, référence#
-| `.white` | `#ffffff` | [.white]#Texte blanc (fond sombre)#
+| `.encre` | `#121014` | [.encre]#Texte principal, couleur par défaut#
+| `.pourpre` | `#A2457F` | [.pourpre]#Accent : lien, détail (4,9:1 sur papier)#
+| `.or` | `#E2BD3C` | Uniquement sur fond sombre (jamais en texte sur clair)
+| `.papier` | `#EFEEEC` | Texte sur fond sombre
+| `.chiffre` | DM Mono | [.chiffre]#2026-11-20 · 443/tcp · 9,8#
+| `.red` | `#C2261F` | [.red]#Alerte, erreur, élément critique#
+| `.orange` | `#AD4F00` | [.orange]#Avertissement#
+| `.green` | `#1D7A3A` | [.green]#Validation, succès#
+| `.blue` | `#2B66A8` | [.blue]#Information, référence#
+| `.gold`, `.marron` | alias | Anciens rôles, rendus en pourpre et en encre
 |===
 
 === Niveaux de Vulnérabilité
 
 Les niveaux de criticité CVE sont représentés par des couleurs dédiées :
 
-* [.color-vuln-informational]#*INFORMATIONNEL*# — CVE Score 0.0
-* [.color-vuln-low]#*FAIBLE*# — CVE Score 0.1–3.9
-* [.color-vuln-medium]#*MOYEN*# — CVE Score 4.0–6.9
-* [.color-vuln-high]#*ÉLEVÉ*# — CVE Score 7.0–8.9
-* [.color-vuln-critical]#*CRITIQUE*# — CVE Score 9.0–10.0
+* [.color-vuln-informational]#*INFORMATIONNEL*# : CVE Score 0.0
+* [.color-vuln-low]#*FAIBLE*# : CVE Score 0.1–3.9
+* [.color-vuln-medium]#*MOYEN*# : CVE Score 4.0–6.9
+* [.color-vuln-high]#*ÉLEVÉ*# : CVE Score 7.0–8.9
+* [.color-vuln-critical]#*CRITIQUE*# : CVE Score 9.0–10.0
 
 === Classifications TLP
 
@@ -112,7 +117,7 @@ Les niveaux de criticité CVE sont représentés par des couleurs dédiées :
 |===
 
 // ──────────────────────────────────────────────
-// PARTIE 2 — LISTES
+// PARTIE 2 : LISTES
 // ──────────────────────────────────────────────
 
 <<<
@@ -130,11 +135,11 @@ Les niveaux de criticité CVE sont représentés par des couleurs dédiées :
 
 === Liste ordonnée
 
-. Première étape — initialisation
+. Première étape : initialisation
 .. Sous-étape A
 .. Sous-étape B
-. Deuxième étape — configuration
-. Troisième étape — déploiement
+. Deuxième étape : configuration
+. Troisième étape : déploiement
 .. Déploiement en staging
 .. Validation fonctionnelle
 .. Promotion en production
@@ -159,7 +164,7 @@ Plateforme d'orchestration et de gestion de configuration orientée événements
 * [ ] Documentation mise à jour
 
 // ──────────────────────────────────────────────
-// PARTIE 3 — TABLEAUX
+// PARTIE 3 : TABLEAUX
 // ──────────────────────────────────────────────
 
 <<<
@@ -230,7 +235,7 @@ Plateforme d'orchestration et de gestion de configuration orientée événements
 |===
 
 // ──────────────────────────────────────────────
-// PARTIE 4 — CODE & DIAGRAMMES
+// PARTIE 4 : CODE & DIAGRAMMES
 // ──────────────────────────────────────────────
 
 <<<
@@ -242,7 +247,7 @@ Plateforme d'orchestration et de gestion de configuration orientée événements
 
 [source,yaml]
 ----
-# Configuration Perceval — Collecte de logs
+# Configuration Perceval : Collecte de logs
 perceval:
   name: log-collector
   version: "2.4.1"
@@ -275,11 +280,11 @@ output:
 ----
 
 
-==== Terraform — Infrastructure
+==== Terraform : Infrastructure
 
 [source,hcl]
 ----
-# main.tf — Infrastructure Perceval sur AWS
+# main.tf : Infrastructure Perceval sur AWS
 
 terraform {
   required_version == ">== 1.7.0"
@@ -316,16 +321,16 @@ resource "aws_instance" "log_collector" {
 [kroki, mermaid, png]
 ----
 %%{init: {"theme": "base", "themeVariables": {
-  "pie1": "#be9e12",
-  "pie2": "#4e4427",
-  "pie3": "#efeadb",
-  "pie4": "#dbd9d3",
-  "pie5": "#f97316",
+  "pie1": "#2A1834",
+  "pie2": "#A2457F",
+  "pie3": "#16302E",
+  "pie4": "#142030",
+  "pie5": "#9A9A9A",
   "pieTextColor": "#ffffff",
-  "pieTitleTextColor": "#4e4427",
-  "pieStrokeColor": "#4e4427",
-  "pieLegendTextColor": "#4e4427",
-  "fontFamily": "sans-serif"
+  "pieTitleTextColor": "#121014",
+  "pieStrokeColor": "#EFEEEC",
+  "pieLegendTextColor": "#121014",
+  "fontFamily": "Jost, sans-serif"
 }}}%%
 pie showData
     title Repartition des Alertes par Niveau de Severite - T1 2026
@@ -337,7 +342,7 @@ pie showData
 ----
 
 // ──────────────────────────────────────────────
-// PARTIE 5 — BLOCS SPÉCIAUX
+// PARTIE 5 : BLOCS SPÉCIAUX
 // ──────────────────────────────────────────────
 
 <<<
@@ -422,7 +427,7 @@ cent fois vous serez victorieux.
 ____
 
 // ──────────────────────────────────────────────
-// PARTIE 6 — RÉFÉRENCES CROISÉES & NOTES
+// PARTIE 6 : RÉFÉRENCES CROISÉES & NOTES
 // ──────────────────────────────────────────────
 
 <<<
@@ -442,7 +447,7 @@ La collecte de logs en temps réel nécessite une latence inférieure à 500ms^1
 footnote:[Latence mesurée entre la génération de l'événement sur la source et son indexation dans Elasticsearch, hors charge exceptionnelle.]
 
 Le chiffrement AES-256-GCM^2^ est utilisé pour le stockage at-rest.
-footnote:[Conformément aux recommandations ANSSI — Guide de sécurité des systèmes d'information version 2024.]
+footnote:[Conformément aux recommandations ANSSI : Guide de sécurité des systèmes d'information version 2024.]
 
 === Texte Multi-Colonnes
 
@@ -468,7 +473,7 @@ a|
 |===
 
 // ──────────────────────────────────────────────
-// PARTIE 7 — ANNEXES
+// PARTIE 7 : ANNEXES
 // ──────────────────────────────────────────────
 
 <<<
@@ -476,11 +481,11 @@ a|
 === Glossaire
 
 ANSSI:: Agence Nationale de la Sécurité des Systèmes d'Information.
-CVE:: Common Vulnerabilities and Exposures — identifiant international de vulnérabilité.
-CVSS:: Common Vulnerability Scoring System — système de notation de la sévérité des vulnérabilités.
-MTTD:: Mean Time To Detect — temps moyen de détection d'un incident de sécurité.
-MTTR:: Mean Time To Respond — temps moyen de réponse et remédiation.
+CVE:: Common Vulnerabilities and Exposures : identifiant international de vulnérabilité.
+CVSS:: Common Vulnerability Scoring System : système de notation de la sévérité des vulnérabilités.
+MTTD:: Mean Time To Detect : temps moyen de détection d'un incident de sécurité.
+MTTR:: Mean Time To Respond : temps moyen de réponse et remédiation.
 SIEM:: Security Information and Event Management.
 SOC:: Security Operations Center.
-TLP:: Traffic Light Protocol — protocole de classification de la confidentialité des informations.
+TLP:: Traffic Light Protocol : protocole de classification de la confidentialité des informations.
 
